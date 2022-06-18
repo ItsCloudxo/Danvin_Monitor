@@ -29,7 +29,7 @@ namespace Danvin_Monitor
         {
             //Url to RSS newsfile.
             string url = "https://nordjyske.dk/rss/aalborg";
-            //Create xml reader
+            //Create xml reader.
             XmlReader reader = XmlReader.Create(url);
             //Load feed from reader.
             SyndicationFeed feed = SyndicationFeed.Load(reader);           
@@ -62,7 +62,7 @@ namespace Danvin_Monitor
 
 
         /// <summary>
-        /// Form initializes code upon load
+        /// Form initializes code upon load.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -79,7 +79,7 @@ namespace Danvin_Monitor
         private void update5Min_Tick(object sender, EventArgs e)
         {
 
-            //Creates SoapClient
+            //Creates SoapClient.
             DVIService.monitorSoapClient webService = new DVIService.monitorSoapClient();
             
             //Variables for temperature and humidity inside the stock. "N2" defines the amount of decimals to display.
@@ -123,7 +123,7 @@ namespace Danvin_Monitor
         /// <param name="e"></param>
         private void clockUpdate_Tick(object sender, EventArgs e)
         {
-            //Creates a new variable for a given timezone
+            //Creates a new variable for a given timezone.
             DateTime dateTimeCph = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("Romance Standard Time"));
             //Because there are problems with displaying danish formatting, we have to create a sperate variable for the day in Danish.
             string dayCph = dateTimeCph.ToString("dddd", new CultureInfo("da-DK"));
@@ -140,26 +140,26 @@ namespace Danvin_Monitor
         }
 
         /// <summary>
-        /// Marquee ticker to move news label
+        /// Marquee ticker to move news label.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void marqueeTick_Tick(object sender, EventArgs e)
         {
-            //Set new location for label
+            //Set new location for label.
             this.newsLabel.Location = new System.Drawing.Point(xPos, yPos);
             if (xPos <= -newsLabel.Width)
             {
-                //Set label start position
+                //Set label start position.
                 xPos = newsPanel.Width;
-                //Roll news index count to next news
+                //Roll news index count to next news.
                 newsIdx = newsIdx < newsList.Count - 1 ? newsIdx + 1 : 0;
-                //Set label text to next news
+                //Set label text to next news.
                 newsLabel.Text = newsList[newsIdx];
             }
             else
             {
-                //Move label
+                //Move label.
                 xPos -= 2;
             }
         }
