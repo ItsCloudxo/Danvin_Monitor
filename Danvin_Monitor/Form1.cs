@@ -75,7 +75,11 @@ namespace Danvin_Monitor
         }
 
 
-
+        /// <summary>
+        /// Updates code every 5 minutes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void update5Min_Tick(object sender, EventArgs e)
         {
 
