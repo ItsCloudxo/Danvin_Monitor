@@ -129,7 +129,7 @@ namespace Danvin_Monitor
         {
             //Creates a new variable for a given timezone.
             DateTime dateTimeCph = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("Romance Standard Time"));
-            //Because there are problems with displaying danish formatting, we have to create a sperate variable for the day in Danish.
+            //Because there are problems with displaying danish formatting, we have to create a seperate variable for the day in Danish.
             string dayCph = dateTimeCph.ToString("dddd", new CultureInfo("da-DK"));
             //The text is set to the day + the date/time in the danish format. If the format was unchanged, it would display time with punctuation instead of colon.
             copenhagenText.Text = $"{dayCph} - {dateTimeCph.ToString(new CultureInfo("da-DK"))}";
